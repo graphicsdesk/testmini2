@@ -1,0 +1,33 @@
+<div class="cover cover-hed">
+  <img src="{{ cover_asset }}" />
+
+  <header>
+    <h1 id="headline">{{ headline }}</h1>
+    
+    <if condition="typeof deck !== 'undefined'">
+      <h1 id="dek">{{ dek }}</h1>
+    </if>
+    <p class="byline">{{{ byline }}}</p>
+    
+    <!-- To add more bylines, add this here & on google doc
+      <p class="byline">{{{ byline2 }}}</p> 
+    -->
+    <p class="pub-date">{{ date }}</p>
+  </header>
+</div>
+
+<if condition="typeof cover_caption !== 'undefined'">
+  <p class="cover-caption">{{{ cover_caption }}}</p>
+</if>
+
+
+
+<div class="g-body">
+  <p class="inline-credits">
+    <each
+      loop="item in typeof credits === 'undefined' ? [] : credits.split('\n')"
+    >
+      <span>{{{ item }}}</span>
+    </each>
+  </p>
+</div>
